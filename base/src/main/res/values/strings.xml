@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">base</string>
+    <string name="LoadingController_loading_message">加载中...</string>
+    <string name="LoadingController_network_error_message">加载失败，请检查网络连接~</string>
+    <string name="LoadingController_error">发生未知错误~</string>
+    <string name="LoadingController_error_retry">重新加载</string>
+    <string name="LoadingController_net_error">加载失败，点击重试~</string>
+    <string name="LoadingController_net_error_retry">重新加载</string>
+    <string name="LoadingController_empty">空的，赶紧动动手指吧！</string>
+    <string name="LoadingController_empty_retry">去点评！</string>
+    <string name="recycler_view_tag" translatable="false">listBehavior</string>
+</resources>

@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion project.COMPILE_SDK_VERSION as int
+    buildToolsVersion project.COMPILE_SDK_VERSION as String
+    defaultConfig {
+        applicationId "com.goach.client"
+        minSdkVersion project.MIN_SDK_VERSION as int
+        targetSdkVersion project.TARGET_SDK_VERSION as int
+        versionCode project.VERSION_CODE as int
+        versionName project.VERSION_NAME as String
+        resConfigs "zh"
+      //  ndk{ abiFilters "armeabi","x86"}
+    }
+    buildTypes {
+        release {
+            minifyEnabled minifyEnabled
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable project.debuggable.toBoolean()
+        }
+    }
+    sourceSets {
+        main{
+            res.srcDirs =
+                    [
+                        'src/main/res/layouts/article',
+                        'src/main/res/layouts/realm',
+                        'src/main/res/layouts',
+                        'src/main/res'
+                    ]
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(':base')
+    api project(':data')
+    api project(':utils')
+
+    implementation parent.ext.libKotlin
+    implementation parent.ext.libSupportV7
+    implementation parent.ext.libConstraint
+    implementation parent.ext.libRxJava
+    implementation parent.ext.libRxAndroid
+    implementation parent.ext.libAnko
+    implementation parent.ext.libAnkoSupportV4
+    implementation parent.ext.libOkHttp3
+    implementation parent.ext.libGson
+    implementation parent.ext.libTimber
+}
