@@ -4,6 +4,7 @@ import com.base.lib.activity.SingleFragmentActivity
 import com.base.lib.rx.LogoutEvent
 import com.base.lib.rx.bus
 import com.goach.client.R
+import com.goach.client.ui.city.CityFragment
 import com.goach.client.ui.glide.GlideFragment
 import com.goach.client.ui.news.KnowItemFragment
 import com.goach.client.ui.realm.RealmFragment
@@ -35,6 +36,9 @@ class MainActivity : SingleFragmentActivity() {
         }
         btnGlide.onClick {
             startFragmentActivity<GlideFragment>("加载框")
+        }
+        btnCity.onClick {
+            startFragmentActivity<CityFragment>("json转换为db")
         }
     }
 }

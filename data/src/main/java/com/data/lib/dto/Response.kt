@@ -34,3 +34,11 @@ class ArticleListResponse : PageResponse() {
     ) : Serializable
     class Title(var id:Long,var title: String):Serializable
 }
+
+class CityResponse:Serializable{
+    var areaId:Long = 0
+    var areaName:String = ""
+    var cities:List<City> = emptyList()
+    class City(val areaId:Long, val areaName:String,val counties:List<Town>):Serializable
+    class Town(val areaId:Long, val areaName:String):Serializable
+}

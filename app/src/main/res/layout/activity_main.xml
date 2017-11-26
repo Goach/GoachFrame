@@ -23,4 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Glide" />
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="json转换为db" />
 </LinearLayout>
