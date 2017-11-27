@@ -36,7 +36,7 @@ class CityFragment : BaseFragment() {
                         if(t){
                             val cityJson = AssetsUtils.getStringForAssets(context,"city.txt")
                             val mCitys = mGson.fromJson<List<CityResponse>>(cityJson,object: TypeToken<List<CityResponse>>(){}.type)
-                            val stringBuilder = StringBuilder("id,city_id,parent_id,city_name\n")
+                            val stringBuilder = StringBuilder()
                             //省
                             mCitys.forEachIndexed { index, cityResponse ->
                                 stringBuilder.append("$index,${cityResponse.areaId},0,${cityResponse.areaName}\n")
