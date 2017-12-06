@@ -4,6 +4,7 @@ import android.view.View
 import com.base.lib.R
 import kotlinx.android.synthetic.main.toolbar_title_layout.*
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.support.v4.act
 
 /**
  * Goach All Rights Reserved
@@ -16,7 +17,7 @@ class TitleFragment : BaseFragment(){
     override fun layoutResID()= R.layout.toolbar_title_layout
     override fun initView(view: View) {
         super.initView(view)
-        tvTitle.text = activity.title
+        tvTitle.text = act.title
     }
 
     override fun initListener() {

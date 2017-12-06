@@ -15,6 +15,7 @@ import com.base.lib.presenter.BasePresenter
 import com.base.lib.utils.StatusViewController
 import com.base.lib.view.Mvp
 import com.base.lib.view.PageListView
+import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.find
 
 /**
@@ -26,7 +27,7 @@ import org.jetbrains.anko.support.v4.find
 abstract class SingleTypeListFragment<P: BasePresenter<*>,T>:BaseLoaderFragment<P>(), ListViewData<T>,OnItemClickListener<T>,OnItemLongClickListener<T> {
     override val list by lazy(LazyThreadSafetyMode.NONE) { arrayListOf<T>() }
     val mRecyclerView by lazy { find<RecyclerView>(android.R.id.list) }
-    val mStatusView by lazy { StatusViewController(context,mRecyclerView)}
+    val mStatusView by lazy { StatusViewController(ctx,mRecyclerView)}
     override val adapter by lazy(LazyThreadSafetyMode.NONE) { createAdapter() }
     override fun layoutResID() = R.layout.list_layout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

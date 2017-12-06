@@ -10,6 +10,8 @@ import com.base.lib.utils.ActivityResultHelp
 import com.base.lib.view.Mvp
 import com.base.lib.view.PageListView
 import org.jetbrains.anko.bundleOf
+import org.jetbrains.anko.support.v4.act
+import org.jetbrains.anko.support.v4.ctx
 import timber.log.Timber
 import java.io.Serializable
 
@@ -40,7 +42,7 @@ open class SingleFragmentActivity:BaseActivity() {
     }
 
     inline fun <reified T : Fragment> Fragment.startFragmentActivity(title: String? = null, vararg args: Pair<String, Any>) {
-        startActivity(SingleFragmentActivity.newInstance(context, SingleFragmentActivity.Option(title, T::class.java, args)))
+        startActivity(SingleFragmentActivity.newInstance(ctx, SingleFragmentActivity.Option(title, T::class.java, args)))
     }
 
     inline fun <reified T : Fragment> Activity.startFragmentActivity(title: String? = null, vararg args: Pair<String, Any>, crossinline resultOk: (Intent) -> Unit) {
@@ -57,8 +59,8 @@ open class SingleFragmentActivity:BaseActivity() {
 
     inline fun <reified T : Fragment> Fragment.startFragmentActivity(title: String? = null, vararg args: Pair<String, Any>, crossinline resultOk: (Intent) -> Unit) {
         ActivityResultHelp.start(
-                activity,
-                SingleFragmentActivity.newInstance(context, SingleFragmentActivity.Option(title, T::class.java, args)),
+                act,
+                SingleFragmentActivity.newInstance(ctx, SingleFragmentActivity.Option(title, T::class.java, args)),
                 object : ActivityResultHelp.ResultAdapter() {
                     override fun onActivityResultOk(data: Intent) {
                         resultOk(data)

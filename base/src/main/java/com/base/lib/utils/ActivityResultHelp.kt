@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v4.util.SparseArrayCompat
 import com.base.lib.activity.BridgeActivity
+import org.jetbrains.anko.support.v4.act
 import java.util.concurrent.atomic.AtomicInteger
 
 /**
@@ -62,9 +63,9 @@ fun Activity.start(intent: Intent, result: ActivityResultHelp.Result) {
 }
 
 fun Fragment.start(intent: Intent, resultOk: (Intent) -> Unit?) {
-    activity.start(intent, resultOk)
+    act.start(intent, resultOk)
 }
 
 fun Fragment.start(intent: Intent, result: ActivityResultHelp.Result) {
-    activity.start(intent, result)
+    act.start(intent, result)
 }

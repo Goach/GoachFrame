@@ -15,6 +15,8 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 
+import java.security.MessageDigest;
+
 /**
  * Goach All Rights Reserved
  * User: Goach
@@ -48,9 +50,8 @@ public class BorderCircleTransformation implements Transformation<Bitmap> {
 
 
     @Override
-    public Resource<Bitmap> transform(Resource<Bitmap> resource, int outWidth, int outHeight) {
-
-         Bitmap source = resource.get();
+    public Resource<Bitmap> transform(Context context, Resource<Bitmap> resource, int outWidth, int outHeight) {
+        Bitmap source = resource.get();
         int size = Math.min(source.getWidth(), source.getHeight());
 
         int width = (source.getWidth() - size) / 2;
@@ -84,7 +85,7 @@ public class BorderCircleTransformation implements Transformation<Bitmap> {
     }
 
     @Override
-    public String getId() {
-        return "BorderCircleTransformation()";
+    public void updateDiskCacheKey(MessageDigest messageDigest) {
+
     }
 }

@@ -7,7 +7,7 @@
         "areaId" : "4521985",
         "areaName" : "北京市",
         "counties" : [
-          { 
+          {
             "areaId" : "4521986",
             "areaName" : "东城区"
           },

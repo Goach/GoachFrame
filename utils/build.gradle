@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'realm-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion project.COMPILE_SDK_VERSION as int
@@ -27,6 +28,7 @@ dependencies {
     implementation parent.ext.libKotlin
     implementation parent.ext.libSupportV7
     implementation parent.ext.libGlide
+    kapt parent.ext.libGlideProcesser
     implementation parent.ext.libAnko
     implementation parent.ext.libAnkoSupportV4
     implementation parent.ext.libTimber

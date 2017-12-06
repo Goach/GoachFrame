@@ -20,7 +20,7 @@ abstract class BaseLoaderFragment<P: BasePresenter<*>>:BaseFragment(), Mvp.View,
     var presenter:P? = null
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        activity.supportLoaderManager.initLoader(Consts.BASE_ACTIVITY_LOADER_ID,null,this)
+        activity!!.supportLoaderManager.initLoader(Consts.BASE_ACTIVITY_LOADER_ID,null,this)
     }
     override fun onLoadFinished(loader: Loader<P>?, data: P) {
         presenter = data

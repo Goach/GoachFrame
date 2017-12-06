@@ -11,6 +11,8 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 import com.utils.lib.AssetsUtils
 import kotlinx.android.synthetic.main.fragment_city.*
 import org.jetbrains.anko.onClick
+import org.jetbrains.anko.support.v4.act
+import org.jetbrains.anko.support.v4.ctx
 
 /**
  * Goach All Rights Reserved
@@ -24,7 +26,7 @@ class CityFragment : BaseFragment() {
     override fun layoutResID() = R.layout.fragment_city
     override fun initView(view: View) {
         super.initView(view)
-        rxPermissions = RxPermissions(activity)
+        rxPermissions = RxPermissions(act)
     }
     override fun initListener() {
         super.initListener()
@@ -34,7 +36,7 @@ class CityFragment : BaseFragment() {
                     .subscribe({
                         t: Boolean ->
                         if(t){
-                            val cityJson = AssetsUtils.getStringForAssets(context,"city.txt")
+                            val cityJson = AssetsUtils.getStringForAssets(ctx,"city.txt")
                             val mCitys = mGson.fromJson<List<CityResponse>>(cityJson,object: TypeToken<List<CityResponse>>(){}.type)
                             val stringBuilder = StringBuilder("id,city_id,parent_id,city_name\n")
                             //省
@@ -60,7 +62,7 @@ class CityFragment : BaseFragment() {
                                     cityCount += it.counties.size
                                 }
                             }
-                            AssetsUtils.stringToFile(context,"City.txt",stringBuilder.toString())
+                            AssetsUtils.stringToFile(ctx,"City.txt",stringBuilder.toString())
                         }
                     })
         }
